@@ -43,6 +43,7 @@
   DATABASES = {
   
      'default': {
+     
          'ENGINE': 'django.db.backends.postgresql',
          
          'NAME': 'lab',
@@ -56,6 +57,7 @@
          'PORT': '5432',
          
      }
+     
  }
  
  CACHES = {
@@ -65,7 +67,9 @@
          'BACKEND': 'django.core.cache.backends.redis.RedisCache',
          
          'LOCATION': 'redis://redis:6379'
+         
      }
+     
  }
  
  CACHE_ENABLED = True
