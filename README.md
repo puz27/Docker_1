@@ -2,7 +2,7 @@
 
 CONFIGURE NETWORK
 
-docker network create my-network
+ docker network create my-network
 
 RUN REDIS 
 
