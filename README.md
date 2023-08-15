@@ -1,7 +1,5 @@
 # Docker_1. Django / Postgres / Redis
-django/postgres/redis
 
-Executuve.
 CONFIGURE NETWORK
 docker network create my-network
 
