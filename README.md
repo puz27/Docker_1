@@ -40,20 +40,30 @@
 
  ALLOWED_HOSTS = ['127.0.0.1']
  
-` DATABASES = {`
+  DATABASES = {
+  
      'default': {
          'ENGINE': 'django.db.backends.postgresql',
+         
          'NAME': 'lab',
+         
          'USER': 'postgres',
+         
          'PASSWORD': 'postgres',
+         
          'HOST': 'django_db',
+         
          'PORT': '5432',
+         
      }
  }
  
  CACHES = {
+ 
      'default': {
+     
          'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+         
          'LOCATION': 'redis://redis:6379'
      }
  }
