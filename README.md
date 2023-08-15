@@ -27,14 +27,19 @@
  pip install django
 
  django-admin startproject config .
+ 
  apt update
+ 
  apt install nano
+ 
  pip install psycopg2
+ 
  pip install redis
 
 ### ADD TO DJANGO/SETTINGS ###
 
  ALLOWED_HOSTS = ['127.0.0.1']
+ 
  DATABASES = {
      'default': {
          'ENGINE': 'django.db.backends.postgresql',
@@ -52,10 +57,14 @@
          'LOCATION': 'redis://redis:6379'
      }
  }
+ 
  CACHE_ENABLED = True
 
 ### RUN DJANGO SERVER ###
+ 
  python manage.py makemigrations
+ 
  python manage.py migrate
+ 
  python manage.py runserver 0.0.0.0:8000
 
