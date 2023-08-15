@@ -1,7 +1,6 @@
 # Docker_1. Django / Postgres / Redis
 
 CONFIGURE NETWORK
-
  docker network create my-network
 
 RUN REDIS 
