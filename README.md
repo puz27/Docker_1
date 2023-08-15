@@ -1,22 +1,30 @@
 # Docker_1. Django / Postgres / Redis
 
 CONFIGURE NETWORK
+
 docker network create my-network
 
 RUN REDIS 
+
 docker run -d --name redis --network my-network -p 6379:6379 redis
 
 RUN POSTGRESQL
+
 docker run -d --name django_db --network my-network -p 5432:5432 -v C:\DOCKER\pgdata:/var/lib/postgresql/data -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=lab -e POSTGRES_HOST_AUTH_METHOD=md5 postgres
 
 RUN DJANGO
+
 docker run -d --name django_app --network my-network -p 8000:8000 -it python bash
 
 CONFIGURE DJANGO
+
 docker exec -it django_app bash
+
 mkdir app
 cd app
+
 pip install django
+
 django-admin startproject config .
 apt update
 apt install nano
