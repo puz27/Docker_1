@@ -4,19 +4,19 @@
 
  docker network create my-network
 
-RUN REDIS 
+### RUN REDIS ### 
 
  docker run -d --name redis --network my-network -p 6379:6379 redis
 
-RUN POSTGRESQL
+### RUN POSTGRESQL ###
 
  docker run -d --name django_db --network my-network -p 5432:5432 -v C:\DOCKER\pgdata:/var/lib/postgresql/data -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=lab -e POSTGRES_HOST_AUTH_METHOD=md5 postgres
 
-RUN DJANGO
+### RUN DJANGO ###
 
  docker run -d --name django_app --network my-network -p 8000:8000 -it python bash
 
-CONFIGURE DJANGO
+### CONFIGURE DJANGO ###
 
  docker exec -it django_app bash
 
@@ -32,7 +32,8 @@ CONFIGURE DJANGO
  pip install psycopg2
  pip install redis
 
-ADD TO DJANGO/SETTINGS
+### ADD TO DJANGO/SETTINGS ###
+
  ALLOWED_HOSTS = ['127.0.0.1']
  DATABASES = {
      'default': {
@@ -53,7 +54,7 @@ ADD TO DJANGO/SETTINGS
  }
  CACHE_ENABLED = True
 
-RUN DJANGO SERVER
+### RUN DJANGO SERVER ###
  python manage.py makemigrations
  python manage.py migrate
  python manage.py runserver 0.0.0.0:8000
